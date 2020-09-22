@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import Profile from './Profile';
 import './App.css';
+import Modal from './Modal';
 
 let ENDPOINTCat = '/cats';
 let ENDPOINTMatchedCat = '/catSearch';
@@ -13,7 +14,7 @@ class App extends React.Component {
       data: [],
       searchInfo: '',
     };
-    // bind method here
+
     this.handleChange = this.handleChange.bind(this);
     this.onClickSearch = this.onClickSearch.bind(this);
   }
@@ -46,6 +47,11 @@ class App extends React.Component {
     this.getCats();
   }
 
+  onClickAdd() {
+    let modal = document.querySelector('.MyModal');
+    modal.style.display = 'block';
+  }
+
   render() {
     return (
       <div className="App">
@@ -64,6 +70,19 @@ class App extends React.Component {
           </div>
         </div>
         <div className="ProfilePicture">
+          <div className="Container">
+            <button className="AddButton" onClick={this.onClickAdd}>
+              <img
+                className="ButtonImg"
+                src="https://image.flaticon.com/icons/png/128/3135/3135512.png"
+                alt="Addbutton"
+              />
+              <div className="Middle">
+                <div className="text">Add your cat</div>
+              </div>
+            </button>
+          </div>
+          <Modal getCats={this.getCats} />
           {this.state.data.map((item) => (
             <Profile key={item._id} eachCat={item} />
           ))}
