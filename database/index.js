@@ -1,8 +1,6 @@
 const mongoose = require('mongoose');
 
-mongoose.connect(
-  'mongodb+srv://twitteruser:beIVyE04gc7clRah@clusterdefault.c31o9.mongodb.net/cat_data?retryWrites=true&w=majority'
-);
+mongoose.connect(process.env.MONGO_CONNECT);
 
 const catSchema = new mongoose.Schema({
   imageURL: String,
