@@ -17,6 +17,7 @@ class Profile extends React.Component {
     let location = this.props.eachCat.location;
     let status = this.props.eachCat.status;
     let information = this.props.eachCat.information;
+
     this.props.onCatSelected(
       imageURL,
       breed,
@@ -26,16 +27,16 @@ class Profile extends React.Component {
       status,
       information
     );
+
     document.querySelector('.App').classList.add('ProfilePictureClicked');
   }
 
   render() {
     return (
       <div className="CatProfile">
-        <img
+        <div
           className="EachProfile"
-          src={this.props.eachCat.imageURL}
-          alt="catImage"
+          style={{ backgroundImage: `url(${this.props.eachCat.imageURL})` }}
           onClick={this.onClick}
         />
       </div>
