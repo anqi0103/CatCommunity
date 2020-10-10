@@ -9,7 +9,7 @@ const bodyParser = require('body-parser');
 var storage = multer.memoryStorage();
 var upload = multer({ storage: storage });
 
-app.use(express.static(path.join(__dirname, '..', 'src')));
+app.use(express.static(path.join(__dirname, '..', 'build')));
 app.use(bodyParser.json());
 
 app.get('/cats', (req, res) => {
@@ -39,6 +39,10 @@ app.get('/catSearch', (req, res) => {
     .catch((err) => {
       res.status(500).send(err);
     });
+});
+
+app.get('/catInfo', (req, res) => {
+  model.CatModel.find({});
 });
 
 app.post('/upload', upload.single('file'), (req, res) => {
@@ -80,7 +84,8 @@ app.post('/upload', upload.single('file'), (req, res) => {
   });
 });
 
-let port = 2000;
-app.listen(port, () => {
-  console.log(`listen on port ${port}`);
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+  console.log(`listen on port ${PORT}`);
 });

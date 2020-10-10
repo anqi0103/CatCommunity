@@ -17,7 +17,7 @@
   padding: 20px;
   border: 1px solid #888;
   width: 440px; /* Could be more or less, depending on screen size */
-  height: 415px;
+  height: 390px;
 }
 
 .close {
@@ -48,12 +48,6 @@
   object-fit: cover;
 }
 
-.SubmitButton {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 7px;
-}
 
 .SearchButton {
   display: inline-block;
@@ -72,6 +66,12 @@
   width: 80px;
 }
 
+.SubmitButton {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 7px;
+}
 .ChooseFileMargin {
   margin-top: 10px;
 }

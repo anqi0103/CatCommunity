@@ -4,8 +4,29 @@ class Profile extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      profilePicture: [],
+      profileInfo: [],
     };
+    this.onClick = this.onClick.bind(this);
+  }
+
+  onClick() {
+    let imageURL = this.props.eachCat.imageURL;
+    let breed = this.props.eachCat.breed;
+    let name = this.props.eachCat.name;
+    let age = this.props.eachCat.age;
+    let location = this.props.eachCat.location;
+    let status = this.props.eachCat.status;
+    let information = this.props.eachCat.information;
+    this.props.onCatSelected(
+      imageURL,
+      breed,
+      name,
+      age,
+      location,
+      status,
+      information
+    );
+    document.querySelector('.App').classList.add('ProfilePictureClicked');
   }
 
   render() {
@@ -15,6 +36,7 @@ class Profile extends React.Component {
           className="EachProfile"
           src={this.props.eachCat.imageURL}
           alt="catImage"
+          onClick={this.onClick}
         />
       </div>
     );
