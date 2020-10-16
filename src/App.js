@@ -19,6 +19,7 @@ class App extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.onClickSearch = this.onClickSearch.bind(this);
     this.onCatSelected = this.onCatSelected.bind(this);
+    this.getCats = this.getCats.bind(this);
   }
 
   handleChange(e) {
@@ -55,7 +56,6 @@ class App extends React.Component {
   }
 
   onClickClose() {
-    console.log('Closed');
     document.querySelector('.App').classList.remove('ProfilePictureClicked');
   }
 

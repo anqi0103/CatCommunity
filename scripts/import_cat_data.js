@@ -1,5 +1,5 @@
 const model = require('../database/index.js');
-const catData = require('../database/catData.js');
+const catData = require('./catData.js');
 
 model.mongoose.connection.dropCollection('catmodels', (err, result) => {
   model.CatModel.insertMany(catData.catExampleData, (err, data) => {

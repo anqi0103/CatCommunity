@@ -154,6 +154,9 @@ class Modal extends React.Component {
                 onChange={this.handleChangeStatus}
                 value={this.state.status}
               >
+                <option value="Select" className="Status">
+                  Select
+                </option>
                 <option value="Available" className="Status">
                   Available
                 </option>

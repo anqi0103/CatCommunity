@@ -15,7 +15,7 @@ let catExampleData = [
     breed: 'Calico Cats',
     name: 'ChuChu',
     age: '5 month',
-    location: 'San Francisco, NY',
+    location: 'San Francisco, CA',
     status: 'Available',
     information: 'Optional',
   },
