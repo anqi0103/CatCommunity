@@ -11,7 +11,7 @@
   "scripts": {
     "start": "node server/index.js",
     "start-react": "react-scripts start",
-    "build": "react-scripts build",
+    "build-frontend": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
