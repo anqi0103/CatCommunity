@@ -14,7 +14,7 @@ app.use(express.static(path.join(__dirname, '..', 'build')));
 app.use(bodyParser.json());
 
 app.get('/cats', (req, res) => {
-  model.CatModel.find({})
+  model.getAllCats()
     .then((result) => {
       res.status(200).send(result);
     })
@@ -75,12 +75,7 @@ app.post('/upload', upload.single('file'), (req, res) => {
         status: req.body.status,
         information: req.body.information,
       };
-      let document = new model.CatModel(newFileUploaded);
-      document.save((error, newFile) => {
-        if (err) {
-          throw err;
-        }
-      });
+      model.addCat(newFileUploaded)
     }
   });
 });

@@ -1,18 +1,33 @@
-const mongoose = require('mongoose');
+const { Pool } = require('pg')
 
-mongoose.connect(process.env.MONGO_CONNECT);
+// Create a new pool instance to manage your connections
+const pool = new Pool({
+  connectionString: process.env.DATABASE_URL,
+  // ssl: {
+  //   rejectUnauthorized: false
+  // }
+})
 
-const catSchema = new mongoose.Schema({
-  imageURL: String,
-  breed: String,
-  name: String,
-  age: String,
-  location: String,
-  status: String,
-  information: String,
-});
 
-const CatModel = mongoose.model('CatModel', catSchema);
+// Function to get all cats from the database
+const getAllCats = async () =>  {
+  const { rows } = await pool.query('SELECT * FROM cats')
+  return rows
+}
 
-module.exports.CatModel = CatModel;
-module.exports.mongoose = mongoose;
+// Function to add a new cat to the database
+const addCat = async (cat) => {
+  const { imageURL, breed, name, age, location, status, information } = cat
+  const { rows } = await pool.query(
+    'INSERT INTO cats(image_url, breed, name, age, location, status, information) VALUES($1, $2, $3, $4, $5, $6, $7) RETURNING *',
+    [imageURL, breed, name, age, location, status, information]
+  )
+
+  return rows[0];
+};
+
+module.exports = {
+  getAllCats,
+  addCat,
+  pool
+}

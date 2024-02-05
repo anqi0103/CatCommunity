@@ -149,7 +149,7 @@ class Modal extends React.Component {
             />
             <br />
             <div>
-              <label for="cStatus">Status: </label>
+              <label htmlFor="cStatus">Status: </label>
               <select
                 onChange={this.handleChangeStatus}
                 value={this.state.status}
@@ -178,7 +178,7 @@ class Modal extends React.Component {
               />
             </div>
             <br />
-            <label for="information">Information(optional): </label>
+            <label htmlFor="information">Information(optional): </label>
             <br />
             <textarea
               className="Info"

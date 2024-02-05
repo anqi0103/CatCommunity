@@ -10,7 +10,7 @@ class Profile extends React.Component {
   }
 
   onClick() {
-    let imageURL = this.props.eachCat.imageURL;
+    let imageURL = this.props.eachCat.image_url;
     let breed = this.props.eachCat.breed;
     let name = this.props.eachCat.name;
     let age = this.props.eachCat.age;
@@ -36,7 +36,7 @@ class Profile extends React.Component {
       <div className="CatProfile">
         <div
           className="EachProfile"
-          style={{ backgroundImage: `url(${this.props.eachCat.imageURL})` }}
+          style={{ backgroundImage: `url('${this.props.eachCat.image_url}')` }}
           onClick={this.onClick}
         />
       </div>
